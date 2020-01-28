@@ -5,6 +5,7 @@
   "description": "MERN stack",
   "main": "app.js",
   "scripts": {
+    "start": "npm run project:prod",
     "server:install": "npm ci",
     "server:start:dev": "nodemon app.js",
     "server:start:prod": "node app.js",
