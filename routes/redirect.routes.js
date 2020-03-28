@@ -1,22 +1,22 @@
-const {Router} = require('express')
-const Link = require('../models/Link')
-const router = Router()
+const { Router } = require('express');
+const Link = require('../models/Link');
+const router = Router();
 
 router.get('/:code', async (req, res) => {
-    try {
-        const link = await Link.findOne({ code: req.params.code })
+  try {
+    const link = await Link.findOne({ code: req.params.code });
 
-        if (link) {
-            link.clicks++
-            await link.save()
+    if (link) {
+      link.clicks++;
+      await link.save();
 
-            return res.redirect(link.from)
-        }
-
-        res.status(404).json('Link was not found')
-    } catch {
-        res.status(500).json({ message: 'Something went wrong. Please, try again later' })
+      return res.redirect(link.from);
     }
-})
 
-module.exports = router
+    res.status(404).json('Link was not found');
+  } catch {
+    res.status(500).json({ message: 'Something went wrong. Please, try again later' });
+  }
+});
+
+module.exports = router;
