@@ -19,14 +19,15 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-const PORT = process.env.PORT || 5000;
-
 (async function start() {
     try {
+        const PORT = process.env.PORT || 5000;
+
         await mongoose.connect(process.env.MONGODB_URI, {
             useNewUrlParser: true,
+            useFindAndModify: false,
+            useCreateIndex: true,
             useUnifiedTopology: true,
-            useCreateIndex: true
         })
         app.listen(PORT, () => console.log(`App has been started on port ${PORT}`))
     } catch (e) {
