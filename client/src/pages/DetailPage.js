@@ -17,7 +17,9 @@ export const DetailPage = () => {
         Authorization: `Bearer ${token}`,
       });
       setLink(fetched);
-    } catch {}
+    } catch (e) {
+      console.error(e);
+    }
   }, [token, linkId, request]);
 
   useEffect(getLink, [getLink]);

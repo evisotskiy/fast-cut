@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState, useContext } from 'react';
-import { useHttp } from './../hooks/http.hook';
-import { AuthContext } from './../context/auth.context';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { AuthContext } from './../context/auth.context';
+import { useHttp } from './../hooks/http.hook';
 
 export const CreatePage = () => {
   const history = useHistory();
@@ -22,7 +22,9 @@ export const CreatePage = () => {
             },
           );
           history.push(`/detail/${data.link._id}`);
-        } catch {}
+        } catch (e) {
+          console.error(e);
+        }
       }
     },
     [auth.token, link, request, history],

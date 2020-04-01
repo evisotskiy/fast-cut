@@ -14,7 +14,9 @@
     "client:build": "npm run build --prefix client",
     "project:install": "npm run server:install && npm run client:install",
     "project:dev": "cross-env NODE_ENV=development concurrently \"npm run server:start:dev\" \"npm run client:start\"",
-    "project:prod": "cross-env NODE_ENV=production && npm run project:install && npm run client:build && npm run server:start:prod"
+    "project:prod": "cross-env NODE_ENV=production && npm run project:install && npm run client:build && npm run server:start:prod",
+    "lint:server": "eslint --fix ./**/*.js",
+    "lint:client": "cd ./client && eslint **/*.js"
   },
   "keywords": [],
   "license": "ISC",
