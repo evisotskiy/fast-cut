@@ -4,3 +4,5 @@ build
 
 .gitignore
 .prettierignore
+.env
+.env.example
